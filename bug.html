@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clearing the div
+      //The bug is here, we are trying to access a child element that no longer exists
+      document.getElementById("myDiv").firstChild.nodeValue = "New Text"; 
+    }
+  </script>
+</body>
+</html>

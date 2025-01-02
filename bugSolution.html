@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = "";
+      //Solution: Check if firstChild exists before accessing it
+      if (document.getElementById("myDiv").firstChild) {
+        document.getElementById("myDiv").firstChild.nodeValue = "New Text";
+      } else {
+        document.getElementById("myDiv").textContent = "New Text"; //Alternative solution
+      }
+    }
+  </script>
+</body>
+</html>
